@@ -48,7 +48,7 @@ body
 </head>
 
 <body>
-<div id="container" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; background-color:Lime;">
+<div id="container" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;">
     <div id="div01" class="blue" style="width:50%; height:100%; float:left">
         <!--<iframe id="iframe01" src="http://helloracer.com/webgl/" width="100%" height="100%" ></iframe>--></div>
 
@@ -68,6 +68,40 @@ body
         	    <!--<iframe id="iframe06" src="http://webglsamples.googlecode.com/hg/aquarium/aquarium.html" width="100%" height="100%" ></iframe>--></div>  
     </div>     
 </div>
+
+
+<script>
+  window.addEventListener('load', function(){ // on page load
+    console.log("loaded !")
+    document.getElementById('container').addEventListener('touchstart', function(e){
+        console.log("touch!");
+	alert(e.changedTouches[0].pageX); // alert pageX coordinate of touch point
+        e.preventDefault();
+    }, false);
+    document.getElementById('containerRight').addEventListener('touchstart', function(e){
+        console.log("touch!");
+	alert(e.changedTouches[0].pageX); // alert pageX coordinate of touch point
+        e.preventDefault();
+    }, false);
+    document.getElementById('div01').addEventListener('touchstart', function(e){
+        console.log("touch!");
+	alert(e.changedTouches[0].pageX); // alert pageX coordinate of touch point
+        e.preventDefault();
+    }, false);
+    document.getElementById('div02').addEventListener('touchstart', function(e){
+        console.log("touch!");
+	alert(e.changedTouches[0].pageX); // alert pageX coordinate of touch point
+        e.preventDefault();
+    }, false);
+    document.getElementById('div03').addEventListener('touchstart', function(e){
+        console.log("touch!");
+	alert(e.changedTouches[0].pageX); // alert pageX coordinate of touch point
+        e.preventDefault();
+    }, false);
+ 
+  }, false)
+
+</script>
 
 </body>
 </html
