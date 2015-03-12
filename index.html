@@ -2,9 +2,9 @@
 
 <html>
 <head>
-	<meta charset="utf-8" />
+  <meta charset="utf-8" />
 
-	<style type="text/css">
+  <style type="text/css">
 
 body
 {
@@ -73,34 +73,39 @@ body
 <script>
   window.addEventListener('load', function(){ // on page load
     console.log("loaded !")
-    document.getElementById('container').addEventListener('touchstart', function(e){
+    /*document.getElementById('container').addEventListener('touchstart', function(e){
         console.log("touch!");
 	alert(e.changedTouches[0].pageX); // alert pageX coordinate of touch point
         e.preventDefault();
-    }, false);
-    document.getElementById('containerRight').addEventListener('touchstart', function(e){
-        console.log("touch!");
-	alert(e.changedTouches[0].pageX); // alert pageX coordinate of touch point
-        e.preventDefault();
-    }, false);
-    document.getElementById('div01').addEventListener('touchstart', function(e){
-        console.log("touch!");
-	alert(e.changedTouches[0].pageX); // alert pageX coordinate of touch point
-        e.preventDefault();
-    }, false);
-    document.getElementById('div02').addEventListener('touchstart', function(e){
-        console.log("touch!");
-	alert(e.changedTouches[0].pageX); // alert pageX coordinate of touch point
-        e.preventDefault();
-    }, false);
-    document.getElementById('div03').addEventListener('touchstart', function(e){
-        console.log("touch!");
-	alert(e.changedTouches[0].pageX); // alert pageX coordinate of touch point
-        e.preventDefault();
-    }, false);
+    }, false);*/
+    
+      
+    var div01 = document.getElementById('div01');
+    div01.onclick = clickHandler;
  
-  }, false)
+    var div02 = document.getElementById('div02');
+    div02.onclick = clickHandler;
+    
+    var div03 = document.getElementById('div03');
+    div03.onclick = clickHandler;
+    
+    var div04 = document.getElementById('div04');
+    div04.onclick = clickHandler;
+    
+    var div05 = document.getElementById('div05');
+    div05.onclick = clickHandler;
+      
+    var div06 = document.getElementById('div06');
+    div06.onclick = clickHandler;
+      
+  }, false);
+    
+  
 
+  function clickHandler(e) {
+    console.log("You clicked on " + e.srcElement.id);
+    //e.preventDefault();
+  }
 </script>
 
 </body>
