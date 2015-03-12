@@ -60,7 +60,7 @@ body
                 <!--<iframe id="iframe03" src="http://oos.moxiecode.com/js_webgl/md5_test/" width="100%" height="100%" ></iframe>--></div>
             <div id="div04" class="lime" style="width:50%; height:50%; float:left">
                 <!--<iframe id="iframe04" src="http://webglsamples.googlecode.com/hg/halo/halo.html" width="100%" height="100%" ></iframe>--></div>
-            <div id="div05" class="yellow" style="width:50%; height:50%; background-color:Yellow; float:right">
+            <div id="div05" class="yellow" style="width:50%; height:50%; float:right">
                 <!--<iframe id="iframe05" src="http://webglsamples.googlecode.com/hg/electricflower/electricflower.html" width="100%" height="100%" ></iframe>--></div>
         </div>
         
@@ -71,6 +71,9 @@ body
 
 
 <script>
+  var colorClasses = ['blue', 'red', 'aqua', 'lime', 'yellow', 'purple'];
+  var colorClassIdx = 0;
+    
   window.addEventListener('load', function(){ // on page load
     console.log("loaded !")
     /*document.getElementById('container').addEventListener('touchstart', function(e){
@@ -104,8 +107,38 @@ body
 
   function clickHandler(e) {
     console.log("You clicked on " + e.srcElement.id);
+    var clickedDiv = document.getElementById(e.srcElement.id);
+    
+    // Remove the current color.
+    for (var i = 0; i < colorClasses.length; i++) {
+      console.log("Element got " + colorClasses[i] + "?");
+      if (clickedDiv.classList.contains(colorClasses[i])) {
+        console.log("yes");
+        clickedDiv.classList.remove(colorClasses[i]);
+      }
+      else {
+        console.log("no");
+      }
+    }
+    
+    // Set a new color (hoping that's not the previous one).
+    clickedDiv.classList.add(colorClasses[colorClassIdx++]);
+    if (colorClassIdx >= colorClasses.length) {
+        colorClassIdx = 0;
+    }
+    
     //e.preventDefault();
   }
+  
+  
+  /*function arrayContains(a, obj) {
+    for (var i = 0; i < a.length; i++) {
+        if (a[i] === obj) {
+            return true;
+        }
+    }
+    return false;
+  }*/
 </script>
 
 </body>
