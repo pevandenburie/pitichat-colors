@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8" />
+
+  <style type="text/css">
+
+body
+{
+  margin: 10px 0 ;
+  padding: 0 ;
+  text-align: center ;
+}
+
+div {
+    -webkit-transition: background-color 1s; /* Safari */
+    transition: background-color 1s;
+}
+
+.red {
+  background-color:Red;
+}
+
+.blue {
+  background-color:Blue;
+}
+
+.aqua {
+  background-color:Aqua;
+}
+
+.lime {
+  background-color:Lime;
+}
+
+.yellow {
+  background-color:Yellow;
+}
+
+.purple {
+  background-color:Purple;
+}
+
+/*
+#iframe01 {
+	height: 100%
+	width: 100%
+}*/
+
+
+	</style>
+</head>
+
+<body>
+<div id="container" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;">
+    <div id="div01" class="blue" style="width:50%; height:100%; float:left">
+        <!--<iframe id="iframe01" src="http://helloracer.com/webgl/" width="100%" height="100%" ></iframe>--></div>
+
+    <div id="containerRight" style="width:50%; height:100%; float:left">
+        <div id="containerRightTop" style="width:100%; height:50%; float:top">
+            <div id="div02" class="aqua" style="width:50%; height:50%; float:left">
+                <!--<iframe id="iframe02" src="http://aleksandarrodic.com/p/jellyfish//" width="100%" height="100%" ></iframe>--></div>
+            <div id="div03" class="red" style="width:50%; height:50%; float:right">
+                <!--<iframe id="iframe03" src="http://oos.moxiecode.com/js_webgl/md5_test/" width="100%" height="100%" ></iframe>--></div>
+            <div id="div04" class="lime" style="width:50%; height:50%; float:left">
+                <!--<iframe id="iframe04" src="http://webglsamples.googlecode.com/hg/halo/halo.html" width="100%" height="100%" ></iframe>--></div>
+            <div id="div05" class="yellow" style="width:50%; height:50%; float:right">
+                <!--<iframe id="iframe05" src="http://webglsamples.googlecode.com/hg/electricflower/electricflower.html" width="100%" height="100%" ></iframe>--></div>
+        </div>
+        
+        <div id="div06" class="purple" style="width:100%; height:50%; float:top">
+        	    <!--<iframe id="iframe06" src="http://webglsamples.googlecode.com/hg/aquarium/aquarium.html" width="100%" height="100%" ></iframe>--></div>  
+    </div>     
+</div>
+
+
+<script>
+  var colorClasses = ['blue', 'red', 'aqua', 'lime', 'yellow', 'purple'];
+  var colorClassIdx = 0;
+    
+  window.addEventListener('load', function(){ // on page load
+    console.log("loaded !")
+    /*document.getElementById('container').addEventListener('touchstart', function(e){
+        console.log("touch!");
+	alert(e.changedTouches[0].pageX); // alert pageX coordinate of touch point
+        e.preventDefault();
+    }, false);*/
+    
+      
+    var div01 = document.getElementById('div01');
+    div01.onclick = clickHandler;
+ 
+    var div02 = document.getElementById('div02');
+    div02.onclick = clickHandler;
+    
+    var div03 = document.getElementById('div03');
+    div03.onclick = clickHandler;
+    
+    var div04 = document.getElementById('div04');
+    div04.onclick = clickHandler;
+    
+    var div05 = document.getElementById('div05');
+    div05.onclick = clickHandler;
+      
+    var div06 = document.getElementById('div06');
+    div06.onclick = clickHandler;
+      
+  }, false);
+    
+  
+
+  function clickHandler(e) {
+    console.log("You clicked on " + e.srcElement.id);
+    var clickedDiv = document.getElementById(e.srcElement.id);
+    
+    // Remove the current color.
+    for (var i = 0; i < colorClasses.length; i++) {
+      console.log("Element got " + colorClasses[i] + "?");
+      if (clickedDiv.classList.contains(colorClasses[i])) {
+        console.log("yes");
+        clickedDiv.classList.remove(colorClasses[i]);
+      }
+      else {
+        console.log("no");
+      }
+    }
+    
+    // Set a new color (hoping that's not the previous one).
+    clickedDiv.classList.add(colorClasses[colorClassIdx++]);
+    if (colorClassIdx >= colorClasses.length) {
+        colorClassIdx = 0;
+    }
+    
+    //e.preventDefault();
+  }
+  
+  
+  /*function arrayContains(a, obj) {
+    for (var i = 0; i < a.length; i++) {
+        if (a[i] === obj) {
+            return true;
+        }
+    }
+    return false;
+  }*/
+</script>
+
+</body>
+</html
